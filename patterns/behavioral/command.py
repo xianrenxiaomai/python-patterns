@@ -18,6 +18,8 @@ Object oriented implementation of callback functions.
 *Examples in Python ecosystem:
 Django HttpRequest (without execute method):
 https://docs.djangoproject.com/en/2.1/ref/request-response/#httprequest-objects
+
+通过传入不同的类 调用相同的方法 产生不同的效果
 """
 
 from typing import Union

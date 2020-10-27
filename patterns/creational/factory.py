@@ -23,6 +23,7 @@ http://ginstrom.com/scribbles/2007/10/08/design-patterns-python-style/
 
 *TL;DR
 Creates objects without having to specify the exact class.
+工厂模式 调用者只需调用对应的函数，无需关心内部实现
 """
 
 

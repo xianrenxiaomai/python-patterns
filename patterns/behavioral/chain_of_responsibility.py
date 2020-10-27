@@ -16,6 +16,8 @@ in several directions, forming a `tree of responsibility`.
 
 *TL;DR
 Allow a request to pass down a chain of receivers until it is handled.
+
+责任链模式 通过继承ABC类 遍历其子类
 """
 
 from abc import ABC, abstractmethod

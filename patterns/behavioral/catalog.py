@@ -1,6 +1,8 @@
 """
 A class that uses different static function depending of a parameter passed in
 init. Note the use of a single dictionary instead of multiple conditions
+
+目录模式， 通过字典映射到对应的函数
 """
 
 __author__ = "Ibrahim Diop <ibrahim@sikilabs.com>"
