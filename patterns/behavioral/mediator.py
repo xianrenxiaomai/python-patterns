@@ -6,6 +6,11 @@ This reduces the dependencies between communicating objects, thereby reducing co
 
 *TL;DR
 Encapsulates how a set of objects interact.
+系统中的对象通过中介进行通信，而不是直接相互通信。
+
+这减少了通信对象之间的依赖关系，从而减少了耦合。
+
+媒介模式 通过ChatRoom去传递信息
 """
 
 from __future__ import annotations

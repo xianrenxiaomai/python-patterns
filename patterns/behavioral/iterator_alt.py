@@ -3,6 +3,8 @@ Implementation of the iterator pattern using the iterator protocol from Python
 
 *TL;DR
 Traverses a container and accesses the container's elements.
+
+构造迭代器 构造迭代器
 """
 
 
