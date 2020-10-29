@@ -3,6 +3,7 @@ http://code.activestate.com/recipes/413838-memento-closure/
 
 *TL;DR
 Provides the ability to restore an object to its previous state.
+纪念品模式 通过memento函数 commit把当前值存入state，并返回restore方法，rollback则调用memento函数的restore方法
 """
 
 from copy import copy, deepcopy
@@ -44,6 +45,7 @@ class Transactional:
     """Adds transactional semantics to methods. Methods decorated  with
 
     @Transactional will rollback to entry-state upon exceptions.
+    类装饰器
     """
 
     def __init__(self, method):
@@ -131,7 +133,42 @@ def main():
     """
 
 
-if __name__ == "__main__":
-    import doctest
+def main1():
+    num_obj = NumObj(-1)
+    print(num_obj)
+    a_transaction = Transaction(True, num_obj)
 
-    doctest.testmod(optionflags=doctest.ELLIPSIS)
+    try:
+        for i in range(3):
+            num_obj.increment()
+            print(num_obj)
+        a_transaction.commit()
+        print('-- committed')
+        for i in range(3):
+            num_obj.increment()
+            print(num_obj)
+        num_obj.value += 'x'  # will fail
+        print(num_obj)
+    except Exception:
+        a_transaction.rollback()
+        print('-- rolled back')
+
+    print(num_obj)
+
+    print('-- now doing stuff ...')
+
+    try:
+        num_obj.do_stuff()
+    except Exception:
+        print('-> doing stuff failed!')
+        import sys
+        import traceback
+        print(num_obj)  # 报错则不更改数据
+        traceback.print_exc(file=sys.stdout)
+
+
+if __name__ == "__main__":
+    # import doctest
+    #
+    # doctest.testmod(optionflags=doctest.ELLIPSIS)
+    main1()
