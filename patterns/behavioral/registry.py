@@ -1,9 +1,18 @@
-class RegistryHolder(type):
+"""
+注册模式
 
+BaseRegisteredClass（metaclass=RegistryHolder），继承父类RegistryHolder(继承type， 并改写__new__)
+通过继承BaseRegisteredClass实现注册
+
+# 研究源码 探究python在继承的时候发生了什么
+"""
+
+
+class RegistryHolder(type):
     REGISTRY = {}
 
     def __new__(cls, name, bases, attrs):
-        new_cls = type.__new__(cls, name, bases, attrs)
+        new_cls = super().__new__(cls, name, bases, attrs)
         """
             Here the name of the class is used as key but it could be any class
             parameter.
@@ -41,6 +50,15 @@ def main():
 
 
 if __name__ == "__main__":
-    import doctest
+    # import doctest
+    #
+    # doctest.testmod(optionflags=doctest.ELLIPSIS)
+    print(sorted(RegistryHolder.REGISTRY))
 
-    doctest.testmod(optionflags=doctest.ELLIPSIS)
+    class ClassRegistree(BaseRegisteredClass): # 只要
+
+        def __init__(self, *args, **kwargs):
+            pass
+
+
+    print(sorted(RegistryHolder.REGISTRY))

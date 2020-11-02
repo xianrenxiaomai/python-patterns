@@ -2,6 +2,9 @@
 *What is this pattern about?
 Define a family of algorithms, encapsulate each one, and make them interchangeable.
 Strategy lets the algorithm vary independently from clients that use it.
+定义一系列算法，封装每一个算法，并使它们可互换。
+策略让算法独立于使用它的客户而变化。
+待研究！！！！
 
 *TL;DR
 Enables selecting an algorithm at runtime.

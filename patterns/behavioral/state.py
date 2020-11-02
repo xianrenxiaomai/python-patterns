@@ -6,6 +6,8 @@ http://ginstrom.com/scribbles/2007/10/08/design-patterns-python-style/
 *TL;DR
 Implements state as a derived class of the state pattern interface.
 Implements state transitions by invoking methods from the pattern's superclass.
+
+状态模式 （收音机模式） 如果切换到最后一个档位 切到pos=0 am/fm 互相切换
 """
 
 
@@ -81,9 +83,13 @@ def main():
     Scanning... Station is 1250 AM
     Scanning... Station is 1380 AM
     """
+    radio = Radio()
+    actions = [radio.scan] * 2 + [radio.toggle_amfm] + [radio.scan] * 2
+    actions *= 2
+
+    for action in actions:
+        action()
 
 
 if __name__ == "__main__":
-    import doctest
-
-    doctest.testmod()
+    main()
