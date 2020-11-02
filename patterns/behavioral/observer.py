@@ -7,16 +7,22 @@ Maintains a list of dependents and notifies them of any state changes.
 *Examples in Python ecosystem:
 Django Signals: https://docs.djangoproject.com/en/3.1/topics/signals/
 Flask Signals: https://flask.palletsprojects.com/en/1.1.x/signals/
+
+观察者模式
+维护一个依赖项列表，并通知它们任何状态更改。
+
+通过调用通知函数，实现观察者的功能。 并未实现只通知状态变化的事件
+
 """
 
 from __future__ import annotations
 
 from contextlib import suppress
-from typing import List, Optional, Protocol
+from typing import List, Optional
 
 
 # define a generic observer type
-class Observer(Protocol):
+class Observer:
     def update(self, subject: Subject) -> None:
         pass
 
@@ -103,8 +109,28 @@ def main():
     DecimalViewer: Subject Data 2 has data 15
     """
 
+    data1 = Data('Data 1')
+    data2 = Data('Data 2')
+    view1 = DecimalViewer()
+    view2 = HexViewer()
+    data1.attach(view1)
+    data1.attach(view2)
+    data2.attach(view2)
+    data2.attach(view1)
+
+    # data1.data = 10
+    data2.data = 15
+    # data1.data = 3
+    data2.data = 15
+
+    # data1.detach(view2)
+    # data2.detach(view2)
+    # data1.data = 10
+    # data2.data = 15
+
 
 if __name__ == "__main__":
-    import doctest
-
-    doctest.testmod()
+    # import doctest
+    #
+    # doctest.testmod()
+    main()
