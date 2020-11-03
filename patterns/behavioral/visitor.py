@@ -3,6 +3,7 @@ http://peter-hoffmann.com/2010/extrinsic-visitor-pattern-python-inheritance.html
 
 *TL;DR
 Separates an algorithm from an object structure on which it operates.
+将算法从其操作的对象结构中分离出来。
 
 An interesting recipe could be found in
 Brian Jones, David Beazley "Python Cookbook" (2013):
@@ -13,6 +14,8 @@ Brian Jones, David Beazley "Python Cookbook" (2013):
 - Python's ast.NodeVisitor: https://github.com/python/cpython/blob/master/Lib/ast.py#L250
 which is then being used e.g. in tools like `pyflakes`.
 - `Black` formatter tool implements it's own: https://github.com/ambv/black/blob/master/black.py#L718
+
+访客模式 每个节点访问时打印出相关信息
 """
 
 
@@ -43,7 +46,7 @@ class Visitor:
 
         if not meth:
             meth = self.generic_visit
-        return meth(node, *args, **kwargs)
+        return meth(node, *args, **kwargs)  # None
 
     def generic_visit(self, node, *args, **kwargs):
         print("generic_visit " + node.__class__.__name__)
@@ -66,9 +69,15 @@ def main():
     >>> visitor.visit(c)
     visit_B C
     """
+    a, b, c = A(), B(), C()
+    visitor = Visitor()
+    visitor.visit(a)
+    visitor.visit(b)
+    visitor.visit(c)
 
 
 if __name__ == "__main__":
-    import doctest
-
-    doctest.testmod()
+    # import doctest
+    #
+    # doctest.testmod()
+    main()

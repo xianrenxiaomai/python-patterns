@@ -4,9 +4,12 @@ An example of the Template pattern in Python
 *TL;DR
 Defines the skeleton of a base algorithm, deferring definition of exact
 steps to subclasses.
+定义一个基本算法的框架，延迟精确的定义步骤子类。
 
 *Examples in Python ecosystem:
 Django class based views: https://docs.djangoproject.com/en/2.1/topics/class-based-views/
+
+模版模式 定义template_function的框架，通过传入参数进行分类处理
 """
 
 
@@ -65,9 +68,10 @@ def main():
     [SAVE]
     `csv` was processed
     """
+    template_function(get_text, to_save=True)
+    template_function(get_pdf, converter=convert_to_text)
+    template_function(get_csv, to_save=True)
 
 
 if __name__ == "__main__":
-    import doctest
-
-    doctest.testmod()
+    main()
