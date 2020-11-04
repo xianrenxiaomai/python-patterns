@@ -3,14 +3,13 @@ http://code.activestate.com/recipes/131499-observer-pattern/
 
 *TL;DR
 Maintains a list of dependents and notifies them of any state changes.
+维护一个依赖项列表，并通知它们任何状态更改。
 
 *Examples in Python ecosystem:
 Django Signals: https://docs.djangoproject.com/en/3.1/topics/signals/
 Flask Signals: https://flask.palletsprojects.com/en/1.1.x/signals/
 
 观察者模式
-维护一个依赖项列表，并通知它们任何状态更改。
-
 通过调用通知函数，实现观察者的功能。 并未实现只通知状态变化的事件
 
 """

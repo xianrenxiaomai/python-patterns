@@ -3,8 +3,9 @@
 
 *TL;DR
 Provides recombination business logic by chaining together using boolean logic.
+通过使用布尔逻辑链接在一起，提供重组业务逻辑。
 
-
+规范模式 根据and,or，not方法 组合两个规范，并返回是否满足
 """
 
 from abc import abstractmethod
@@ -26,11 +27,13 @@ class Specification:
 
 
 class CompositeSpecification(Specification):
+    # 复合模范模式
     @abstractmethod
     def is_satisfied_by(self, candidate):
         pass
 
     def and_specification(self, candidate):
+        # candidate 与自身做逻辑运算的对象
         return AndSpecification(self, candidate)
 
     def or_specification(self, candidate):
@@ -111,9 +114,16 @@ def main():
     >>> root_specification.is_satisfied_by(vasiliy), 'vasiliy'
     (False, 'vasiliy')
     """
+    andrey = User()
+    ivan = User(super_user=True)
+    vasiliy = 'not User instance'
+
+    # and_specification： 必须同时满足UserSpecification和SuperUserSpecification
+    root_specification = UserSpecification().and_specification(SuperUserSpecification())
+    print(root_specification.is_satisfied_by(andrey), 'andrey')
+    print(root_specification.is_satisfied_by(ivan), 'ivan')
+    print(root_specification.is_satisfied_by(vasiliy), 'vasiliy')
 
 
 if __name__ == "__main__":
-    import doctest
-
-    doctest.testmod()
+    main()

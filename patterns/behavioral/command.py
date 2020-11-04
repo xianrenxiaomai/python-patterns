@@ -5,12 +5,19 @@ You have a menu that has lots of items. Each item is responsible for doing a
 special thing and you want your menu item just call the execute method when
 it is pressed. To achieve this you implement a command object with the execute
 method for each menu item and pass to it.
+命令模式将调用作业的对象与处理作业对象解耦。正如GoF书中提到的，菜单项就是一个很好的例子。
+
+你的菜单上有很多项目。每个项目负责做特殊的东西，你想让你的菜单项在按下的时候执行。
+要实现这一点，可以使用execute方法实现一个命令对象，并传递给每个菜单项。
 
 *About the example
 We have a menu containing two items. Each item accepts a file name, one hides the file
 and the other deletes it. Both items have an undo option.
 Each item is a MenuItem class that accepts the corresponding command as input and executes
 it's execute method when it is pressed.
+我们的菜单上有两项。每个项目接受一个文件名，一个项目隐藏文件。另一个项目删除文件。这两个项目都有一个撤销选项。
+
+每个项都是MenuItem类，它接受相应的命令作为输入并执行。它是被按下时的execute方法。
 
 *TL;DR
 Object oriented implementation of callback functions.

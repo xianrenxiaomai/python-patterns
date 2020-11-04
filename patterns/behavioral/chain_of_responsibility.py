@@ -14,6 +14,15 @@ Request receiver in simple form keeps a reference to a single successor.
 As a variation some receivers may be capable of sending requests out
 in several directions, forming a `tree of responsibility`.
 
+if ... elif ... elif ... else ...的面向对象版本
+好处是条件-动作块可以动态地重新排列 并在运行时重新配置。
+
+此模式旨在将请求的发送方与请求的发送方解耦
+通过允许接收者通过链接移动请求 直到它被处理。
+
+简单形式的请求接收方保留对单个继承方的引用。
+作为一种变体，一些接收者可能能够将请求发送出去，在几个方面，形成了“责任树”。
+
 *TL;DR
 Allow a request to pass down a chain of receivers until it is handled.
 

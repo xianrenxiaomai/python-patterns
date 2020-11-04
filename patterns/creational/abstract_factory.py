@@ -8,9 +8,15 @@ actual class.
 The idea is to abstract the creation of objects depending on business
 logic, platform choice, etc.
 
+在Java和其他语言中，抽象工厂模式用于为创建相关/依赖对象而不需要指定它们实际的类。
+其思想是根据业务抽象对象的创建逻辑，平台选择，等等。
+
 In Python, the interface we use is simply a callable, which is "builtin" interface
 in Python, and in normal circumstances we can simply use the class itself as
 that callable, because classes are first class objects in Python.
+
+在Python中，我们使用的接口只是一个可调用的接口，即“内置”接口在Python中，
+在一般情况下，我们可以简单地使用类本身作为这是可调用的，因为类是Python中的第一个类对象。
 
 *What does this example do?
 This particular implementation abstracts the creation of a pet and
@@ -20,6 +26,10 @@ interface (callable for creation and .speak()).
 Now my application can create pets abstractly and decide later,
 based on my own criteria, dogs over cats.
 
+这个特定的实现抽象了宠物和的创建 这取决于我们选择的工厂(狗或猫，或random_animal)
+这是可行的，因为狗/猫和随机动物尊重是一个共同点接口(可用于创建和.speak())。
+现在我的应用程序可以抽象地创建宠物，然后再决定，根据我自己的标准，狗比猫好。
+
 *Where is the pattern used practically?
 
 *References:
@@ -28,6 +38,8 @@ http://ginstrom.com/scribbles/2007/10/08/design-patterns-python-style/
 
 *TL;DR
 Provides a way to encapsulate a group of individual factories.
+
+抽象工厂模式
 """
 
 import random
@@ -38,7 +50,7 @@ class PetShop:
     """A pet shop"""
 
     def __init__(self, animal_factory=None):
-        """pet_factory is our abstract factory.  We can set it at will."""
+        """pet_factory is our abstract factory.  We can set it at will(随意改变他)."""
 
         self.pet_factory = animal_factory
 
@@ -98,10 +110,18 @@ def main():
     It says woof
     ====================
     """
+    cat_shop = PetShop(Cat)
+    cat_shop.show_pet()
+
+    shop = PetShop(random_animal)
+    for i in range(3):
+        shop.show_pet()
+    print("=" * 20)
 
 
 if __name__ == "__main__":
-    random.seed(1234)  # for deterministic doctest outputs
-    import doctest
-
-    doctest.testmod()
+    # random.seed(1234)  # for deterministic doctest outputs
+    # import doctest
+    #
+    # doctest.testmod()
+    main()

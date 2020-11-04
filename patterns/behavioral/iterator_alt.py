@@ -1,6 +1,6 @@
 """
 Implementation of the iterator pattern using the iterator protocol from Python
-
+使用Python中的迭代器协议实现迭代器模式
 *TL;DR
 Traverses a container and accesses the container's elements.
 

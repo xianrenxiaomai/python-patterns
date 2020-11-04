@@ -6,6 +6,8 @@ http://ginstrom.com/scribbles/2007/10/08/design-patterns-python-style/
 *TL;DR
 Implements state as a derived class of the state pattern interface.
 Implements state transitions by invoking methods from the pattern's superclass.
+将state实现为state模式接口的派生类。
+通过调用模式超类中的方法来实现状态转换。
 
 状态模式 （收音机模式） 如果切换到最后一个档位 切到pos=0 am/fm 互相切换
 """
