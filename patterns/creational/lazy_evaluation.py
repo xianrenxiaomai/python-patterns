@@ -20,7 +20,7 @@ https://github.com/pallets/werkzeug/blob/5a2bf35441006d832ab1ed5a31963cbc366c99a
 Delays the eval of an expr until its value is needed and avoids repeated evals.
 延迟expr的eval，直到需要它的值，并避免重复的evals。
 
-懒加载模式
+懒加载模式 通过调用函数名，触发调用懒加载装饰器
 """
 
 import functools
@@ -102,11 +102,14 @@ def main():
     1
     """
     Jhon = Person('Jhon', 'Coder')
-
-    # Before we access `relatives`
     print(sorted(Jhon.__dict__.items()))
+
     Jhon.relatives
+    print(sorted(Jhon.__dict__.items()))
+
     Jhon.parents
+
+    print(sorted(Jhon.__dict__.items()))
 
 
 if __name__ == "__main__":
