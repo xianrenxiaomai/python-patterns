@@ -1,5 +1,6 @@
 """
 Lazily-evaluated property pattern in Python.
+Python中的惰性求值属性模式。
 
 https://en.wikipedia.org/wiki/Lazy_evaluation
 
@@ -17,6 +18,9 @@ https://github.com/pallets/werkzeug/blob/5a2bf35441006d832ab1ed5a31963cbc366c99a
 
 *TL;DR
 Delays the eval of an expr until its value is needed and avoids repeated evals.
+延迟expr的eval，直到需要它的值，并避免重复的evals。
+
+懒加载模式
 """
 
 import functools
@@ -97,9 +101,16 @@ def main():
     >>> Jhon.call_count2
     1
     """
+    Jhon = Person('Jhon', 'Coder')
+
+    # Before we access `relatives`
+    print(sorted(Jhon.__dict__.items()))
+    Jhon.relatives
+    Jhon.parents
 
 
 if __name__ == "__main__":
-    import doctest
-
-    doctest.testmod(optionflags=doctest.ELLIPSIS)
+    # import doctest
+    #
+    # doctest.testmod(optionflags=doctest.ELLIPSIS)
+    main()

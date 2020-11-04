@@ -38,6 +38,7 @@ http://ginstrom.com/scribbles/2007/10/08/design-patterns-python-style/
 
 *TL;DR
 Provides a way to encapsulate a group of individual factories.
+提供封装一组独立工厂的方法
 
 抽象工厂模式
 """

@@ -5,6 +5,8 @@ so that the same process can be reused to build objects from the same
 family.
 This is useful when you must separate the specification of an object
 from its actual representation (generally for abstraction).
+它将复杂对象的创建和表示解耦，这样就可以重用相同的过程来构建相同的对象家庭。
+当您必须分离对象的规范时，这是有用的 从它的实际表现(通常为抽象)。
 
 *What does this example do?
 
@@ -22,6 +24,12 @@ instance of a different class.
 In general, in Python this won't be necessary, but a second example showing
 this kind of arrangement is also included.
 
+第一个示例通过使用抽象基类来实现这一点，其中初始化器(__init__方法)指定所需的步骤，具体的子类实现这些步骤。
+在其他编程语言中，有时会有更复杂的安排
+特别地，你不能在c++ -的构造函数中有多态行为, 这意味着Python技术将无法工作。
+多态性所需要的必须由外部的，已经构建另一个类的实例提供。
+一般来说，在Python中这是不必要的，但是下面是第二个例子这种安排也包括在内。
+
 *Where is the pattern used practically?
 
 *References:
@@ -29,6 +37,9 @@ https://sourcemaking.com/design_patterns/builder
 
 *TL;DR
 Decouples the creation of a complex object and its representation.
+解耦复杂对象的创建及其表示。
+
+构建器模式
 """
 
 
@@ -107,8 +118,19 @@ def main():
     Floor: One | Size: Big and fancy
     """
 
+    house = House()
+    print(house)
+
+    flat = Flat()
+    print(flat)
+
+    # Using an external constructor function:
+    complex_house = construct_building(ComplexHouse)
+    print(complex_house)
+
 
 if __name__ == "__main__":
-    import doctest
-
-    doctest.testmod()
+    # import doctest
+    #
+    # doctest.testmod()
+    main()
