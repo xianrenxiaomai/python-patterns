@@ -3,7 +3,9 @@ http://code.activestate.com/recipes/413838-memento-closure/
 
 *TL;DR
 Provides the ability to restore an object to its previous state.
-纪念品模式 通过memento函数 commit把当前值存入state，并返回restore方法，rollback则调用memento函数的restore方法
+纪念品模式
+通过memento函数 commit把当前值存入state，并返回restore方法，
+rollback则调用memento函数的restore方法
 """
 
 from copy import copy, deepcopy
