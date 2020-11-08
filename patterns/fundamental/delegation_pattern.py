@@ -4,6 +4,7 @@ Author: https://github.com/IuryAlves
 
 *TL;DR
 Allows object composition to achieve the same code reuse as inheritance.
+允许对象组合实现与继承相同的代码重用。
 """
 
 from __future__ import annotations
@@ -11,7 +12,7 @@ from __future__ import annotations
 from typing import Any, Callable, Union
 
 
-class Delegator:
+class Delegator:  # 全权代表
     """
     >>> delegator = Delegator(Delegate())
     >>> delegator.p1
@@ -43,7 +44,7 @@ class Delegator:
         return wrapper
 
 
-class Delegate:
+class Delegate:  # 委托
     def __init__(self):
         self.p1 = 123
 
