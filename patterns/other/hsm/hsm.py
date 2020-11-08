@@ -3,9 +3,13 @@ Implementation of the HSM (hierarchical state machine) or
 NFSM (nested finite state machine) C++ example from
 http://www.eventhelix.com/RealtimeMantra/HierarchicalStateMachine.htm#.VwqLVEL950w
 in Python
-
 - single source 'message type' for state transition changes
 - message type considered, messages (comment) not considered to avoid complexity
+
+在Python中实现HSM(层次状态机)或NFSM(嵌套有限状态机)c++
+示例:http://www.eventhelix.com/RealtimeMantra/HierarchicalStateMachine.htm#.VwqLVEL950w
+用于状态转换更改的单一源“消息类型”
+考虑消息类型，没有考虑消息(评论)以避免复杂性
 """
 
 

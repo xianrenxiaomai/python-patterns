@@ -1,6 +1,7 @@
 """
 *TL;DR
 Separates presentation, application processing, and data management functions.
+将表示、应用程序处理和数据管理功能分离。
 """
 
 from typing import Dict, KeysView, Optional, Union
