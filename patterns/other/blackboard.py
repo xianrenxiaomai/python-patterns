@@ -6,6 +6,10 @@ assemble their knowledge to build a possibly partial or approximate solution.
 In this way, the sub-systems work together to solve the problem,
 where the solution is the sum of its parts.
 
+在黑板模式中，几个专门的子系统(知识源)集合它们的知识来构建一个可能的部分或近似解。
+
+通过这种方式，子系统一起工作来解决问题，而解决方案就是各部分的总和。
+
 https://en.wikipedia.org/wiki/Blackboard_system
 """
 

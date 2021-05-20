@@ -4,7 +4,12 @@ class GraphSearch:
     http://www.python.org/doc/essays/graphs/
 
     dfs stands for Depth First Search
-    bfs stands for Breadth First Search"""
+    bfs stands for Breadth First Search
+
+    python模拟图搜索，从源码http://www.python.org/doc/essays/graphs/
+    dfs代表深度优先搜索
+    bfs代表广度优先搜索
+    """
 
     def __init__(self, graph):
         self.graph = graph
