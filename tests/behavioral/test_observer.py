@@ -1,6 +1,5 @@
-from unittest.mock import Mock, patch
-
 import pytest
+from unittest.mock import Mock, patch
 
 from patterns.behavioral.observer import Data, DecimalViewer, HexViewer
 
